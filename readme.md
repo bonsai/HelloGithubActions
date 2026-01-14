@@ -1,4 +1,4 @@
-# SF落語2：ハローワールドやってみる
+# SF落語：ハローワールドやってみる
 
 ## 0. まくら（導入）
 
@@ -180,7 +180,7 @@ PR は “迷い” を減らす。
 
 と、ご隠居が出してきたのがこれ。
 
-https://github.com/bonsai/GUM/new/main?filename=.github%2Fworkflows%2Fgreetings.yml&workflow_template=automation%2Fgreetings
+https://github.com/bonsai/HelloGithubActions/new/main?filename=.github%2Fworkflows%2Fgreetings.yml&workflow_template=automation%2Fgreetings
 
 こういう“増やし方”があると、未来っぽい。
 自動化ってのは、重い仕組みじゃなくて、軽い追加で広がっていく。
