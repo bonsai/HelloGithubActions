@@ -1,0 +1,17 @@
+name: hello-actions
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: |
+          echo "Hello from GitHub Actions"
+          echo "repo: ${{ github.repository }}"
+          echo "actor: ${{ github.actor }}"
+          echo "event: ${{ github.event_name }}"

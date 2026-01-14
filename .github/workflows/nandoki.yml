@@ -1,0 +1,40 @@
+name: nandoki
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show time
+        shell: bash
+        run: |
+          echo "utc: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          echo "local: $(date +'%Y-%m-%d %H:%M:%S %Z')"
+          echo "run_id: ${{ github.run_id }}"
+          echo "run_number: ${{ github.run_number }}"
+          echo "event: ${{ github.event_name }}"
+          echo "ref: ${{ github.ref }}"
+          echo "sha: ${{ github.sha }}"
+          echo "actor: ${{ github.actor }}"
+          echo "repo: ${{ github.repository }}"
+      - name: Summary
+        shell: bash
+        run: |
+          {
+            echo "## nandoki"
+            echo ""
+            echo "- utc: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            echo "- local: $(date +'%Y-%m-%d %H:%M:%S %Z')"
+            echo "- event: ${{ github.event_name }}"
+            echo "- ref: ${{ github.ref }}"
+            echo "- sha: ${{ github.sha }}"
+            echo "- actor: ${{ github.actor }}"
+            echo "- repo: ${{ github.repository }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
